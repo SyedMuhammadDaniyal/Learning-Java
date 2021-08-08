@@ -153,6 +153,7 @@ public class javaPrac3 {
 
 ## Polymorphism
 1. overloading(compile time)
+
 Constructor Overloading
 ``` java
 class classA{
@@ -208,7 +209,7 @@ public class javaPrac5 {
     }
 }
 ```
-3. overriding(runtime)
+2. overriding(runtime)
 ``` java
 class classA{
     public void print(){
@@ -233,7 +234,8 @@ public class javaPrac6 {
 ```
 
 
-## Encapsulation (getter and setter)
+## Encapsulation (hiding the code)
+getters and setters
 ``` java
 class Shape{
     String name;
