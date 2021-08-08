@@ -7,9 +7,16 @@ Remaining topics(exception, default, static, super, array(1D, 2D), data types, p
 2. parametrized (is mai parameter mai value pass krte hain)
 
 ## Access Modifiers
-public (can be access from anywhere)
-private (can not access in child class)
-protected (can be access in sub class of same package)
+1. public (can be access from anywhere)
+2. private (can not access in child class)
+3. protected (can be access in sub class of same package)
+4. default (A Java default keyword is an access modifier. If you didn't assign any access modifier to variables, methods, constructors and, classes, by default, it is considered as default access modifier)
+The default access modifier is accessible within the package only.
+Unlike private and protected, we can create a default outer class by not assigning any access modifier to it. In such a case, it not restricted to take class name similar to a program name.
+If you are overriding any method, overridden method (i.e., declared in the subclass) must not be more restrictive. So, the default method or variable can't be allowed to use private access modifier.
+
+## Non-access Modifiers
+1. static (The static keyword is a non-access modifier used for methods and attributes. Static methods/attributes can be accessed without creating an object of a class.)
 
 
 
