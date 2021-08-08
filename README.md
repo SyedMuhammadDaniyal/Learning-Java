@@ -1,6 +1,6 @@
 # Learning-Java
 
-exception, default, static, super, array(1D, 2D), data types, packages
+Remaining topics(exception, default, static, super, array(1D, 2D), data types, packages) will cover soon.
 
 ## Types of constructor
 1. default (is mai default value set krte hain)
