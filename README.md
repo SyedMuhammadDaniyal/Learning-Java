@@ -1,10 +1,54 @@
 # Learning-Java
 
-Remaining topics(exception, default, static, super, array(1D, 2D), data types, packages) will cover soon.
+Remaining topics(exception, static, super, array(1D, 2D), data types, stack, queue) will cover soon.
 
 ## Types of constructor
 1. default (is mai default value set krte hain)
-2. parametrized (is mai parameter mai value pass krte hain)
+``` java
+class classA{
+    int a;
+    int b;
+    classA(){
+        this.a = 2;
+        this.b = 3;
+
+    }
+    
+    public void getter(){
+        System.out.println(this.a);
+        System.out.println(this.b);
+    }
+}
+public class MyClass {
+    public static void main(String args[]) {
+    classA obj = new classA();
+    obj.getter();
+    }
+}
+```
+3. parametrized (is mai parameter mai value pass krte hain)
+``` java
+class classA{
+    int a;
+    int b;
+    classA(int a, int b){
+        this.a = a;
+        this.b = b;
+
+    }
+    
+    public void getter(){
+        System.out.println(a);
+        System.out.println(this.b);
+    }
+}
+public class MyClass {
+    public static void main(String args[]) {
+    classA obj = new classA(1,2);
+    obj.getter();
+    }
+}
+```
 
 ## Access Modifiers
 1. public (can be access from anywhere)
@@ -26,10 +70,37 @@ If you are overriding any method, overridden method (i.e., declared in the subcl
 
 ## Inheritance
 1. single inheritence
+``` java
+class classA{
+    public void methodA(){
+        System.out.println("this is class A");
+    }
+}
+class classB extends classA{
+    public void methodB(){
+        System.out.println("this is class B");
+    }
+}
+class classC extends classA{
+    public void methodC(){
+        System.out.println("this is class C");
+    }
+}
+
+public class MyClass {
+    public static void main(String args[]) {
+    classB obj = new classB();
+    obj.methodA();
+    obj.methodB();
+    classC obj1 = new classC();
+    obj1.methodA();
+    obj1.methodC();
+    }
+}
+```
 2. multi level
-	agr hamne obj banate waqt parent class type mai parent class dedi
+	agr hamne obj banate waqt class type mai parent class dedi
 	tu wo jis class ka obj ban rha hai us k methods ko access nai kr skte
-	EXAMPLE CODE
   
   ``` java
 	class A{
@@ -62,6 +133,7 @@ If you are overriding any method, overridden method (i.e., declared in the subcl
 	}
 }
 ```
+3. Multiple (there is no multiple inheritance in java)
 #### aggregation (has a relation)(yahan inheritence ki jaga aik class ko dosri class mai instanciate krengay)
 
 ## Abstraction(abstract class and interface)
