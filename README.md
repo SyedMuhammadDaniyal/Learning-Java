@@ -1,6 +1,6 @@
 # Learning-Java
 
-Remaining topics(exception, data types, stack, queue) will cover soon.
+Remaining topics(stack, queue) will cover soon.
 ## Exceptions
 ``` java
 public class MyClass {
