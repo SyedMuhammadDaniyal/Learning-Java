@@ -1,7 +1,53 @@
 # Learning-Java
 
-Remaining topics(exception, static, super, array(1D, 2D), data types, stack, queue) will cover soon.
-
+Remaining topics(exception, data types, stack, queue) will cover soon.
+## Exceptions
+``` java
+public class MyClass {
+    public static void main(String args[]) {
+    // compile time error
+    // (syntactical error , type error, not found error etc)
+    // runtime errors
+    // (logical errors, arithmatic error , type(if you give wrong type in user inp))
+    
+    try{
+        int a = 0;
+        int b = 1;
+        System.out.println(a/b);
+    }catch (Exception e){
+        System.out.println(e);
+    }
+    finally{
+        System.out.println("this block will always runs");
+    }
+    }
+    
+    
+    int a = 0;
+    if (a == 0){
+        throw new ArithmeticException("division by zero");
+    }
+}
+```
+## Array
+### 2D
+``` java
+int[][] a = new int[2][3];
+        a[0][0] = 1;
+        a[0][1] = 2;
+        a[0][2] = 3;
+        
+        a[1][0] = 1;
+        a[1][1] = 2;
+        a[1][2] = 3;
+        
+        for (int i = 0; i < a.length; i++){
+            for (int j = 0; j < a[i].length; j++){
+                System.out.print(a[i][j]);
+            }
+            System.out.println();
+        }
+```
 ## Types of constructor
 1. default (is mai default value set krte hain)
 ``` java
@@ -99,8 +145,7 @@ public class MyClass {
 }
 ```
 2. multi level
-	agr hamne obj banate waqt class type mai parent class dedi
-	tu wo jis class ka obj ban rha hai us k methods ko access nai kr skte
+	When you compile your program the reference variable of the base class gets memory and compiler checks all the methods in that class. So it checks all the base class methods but not the child class methods. Now at runtime when the object is created, only checked methods can run. In case a method is overridden in the child class that function runs. Child class other functions aren't run because the compiler hasn't recognized them at the compile time.
   
   ``` java
 	class A{
@@ -134,7 +179,93 @@ public class MyClass {
 }
 ```
 3. Multiple (there is no multiple inheritance in java)
-#### aggregation (has a relation)(yahan inheritence ki jaga aik class ko dosri class mai instanciate krengay)
+## super(The super keyword in Java is a reference variable that is used to refer parent class objects. Super can be used to call parent class’ variables and methods.)
+``` java
+// super keyword
+class classA{
+    int a = 2;
+    void print(){
+        System.out.println("this is class A");
+    }
+}
+
+class classB extends classA{
+    int a = 3;
+    public int add(int b){
+        super.print();
+        return super.a + b;
+    }
+}
+
+public class MyClass {
+    public static void main(String args[]) {
+        classB obj = new classB();
+        System.out.println(obj.add(2));
+
+    }
+}
+```
+## super() ..... (The super() in Java is a reference variable that is used to refer parent class constructors. super() can be used to call parent class’ constructors only.)
+``` java
+class classA{
+    int a;
+    classA(int a){
+        this.a = a;
+    }
+}
+
+class classB extends classA{
+    int b;
+    classB(int a, int b){
+        super(a);
+        this.b = b;
+    }
+    public int add(){
+        return super.a+ b;
+    }
+}
+
+public class MyClass {
+    public static void main(String args[]) {
+       classB obj = new classB(1,2);
+       System.out.println(obj.add());
+
+    }
+}
+```
+## Has a relation
+### Association (makes an object of a class in another class)
+1. Aggregation (two class are independent)
+``` java
+class Car{
+    Driver driver = new Driver();
+}
+
+class Driver{
+    Driver(){
+        System.out.println("this is shapater driver");
+    }
+}
+```
+3. Composition (two class are dependent)
+``` java
+class Engine{
+    Engine(){
+        System.out.println("this is engine of car");
+    }
+}
+
+class Car{
+// engine is instance variable
+        Engine engine = new Engine();
+
+}
+public class MyClass {
+    public static void main(String args[]) {
+        Car civic = new Car();     
+    }
+}
+```
 
 ## Abstraction(abstract class and interface)
 absract class(has abstract as well as concrete method): (we can not make object/instance of abstract class, it is madatory to define abstract methods in child class otherwise it
