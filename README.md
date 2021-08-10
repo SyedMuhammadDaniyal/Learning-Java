@@ -1,6 +1,7 @@
 # Learning-Java
 
-Remaining topics(stack, queue) will cover soon.
+## Data Structures
+1. Linked List
 ``` java
 class Node{
     int data;
@@ -45,7 +46,7 @@ public class MyClass {
     }
 }
 ```
-
+2. Stack
 ``` java
 class Stack{
     int[] arr;
