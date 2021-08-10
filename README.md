@@ -1,4 +1,67 @@
 # Learning-Java
+## Files and I/O
+``` java
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.*;
+```
+1. Create file
+``` java
+try {
+		
+		File myFile = new File("hello.txt");
+
+		if (myFile.createNewFile()){
+			System.out.println("File Created");}
+		else{
+			System.out.println("File already Exist");
+		    }
+		}catch(IOException e) {
+			e.printStackTrace();
+		}
+```
+2. Write file
+``` java
+try
+		{
+			FileWriter mywriter = new FileWriter("hello.txt");
+			mywriter.write("Hello WOrld");
+			mywriter.close();
+		}
+		catch(IOException e) {
+			e.printStackTrace();
+			System.out.println("Not work");
+		}
+```
+3. Read file
+``` java
+try {
+			File myObj = new File("hello.txt");
+			Scanner myReader = new Scanner(myObj);
+			while(myReader.hasNextLine()) {
+				String data = myReader.nextLine();
+				System.out.println(data);
+			}
+		}
+			
+			catch(FileNotFoundException e) {
+				e.printStackTrace();
+			}
+
+```
+4. Delete file
+``` java
+ File obj = new File("hello.txt");
+		if(obj.delete()) {
+			System.out.println("Deleted");
+		}
+		else
+		{
+			System.out.println("not WOrk");
+		}
+```
 
 ## Data Structures
 1. Linked List
