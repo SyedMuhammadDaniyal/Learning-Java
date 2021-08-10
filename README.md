@@ -1,6 +1,100 @@
 # Learning-Java
 
 Remaining topics(stack, queue) will cover soon.
+``` java
+class Node{
+    int data;
+    Node next;
+    Node(int data){
+        this.data = data;
+    }
+}
+
+class LinkedList{
+    Node head;
+    Node nxt1;
+    
+    public void addNode(int data){
+        if (this.head == null){
+            this.head = new Node(data);
+            System.out.println(head);
+        }else{
+            Node node = new Node(data);
+            nxt1 = head;
+            while (nxt1.next != null){
+                nxt1 = nxt1.next;
+            }
+            nxt1.next = node;
+        }
+    }
+    
+    public void print(){
+        nxt1 = head;
+        while (nxt1 != null){
+            System.out.println(nxt1.data);
+            nxt1 = nxt1.next;
+        }
+    }
+}
+public class MyClass {
+    public static void main(String args[]) {
+        LinkedList obj = new LinkedList();
+        obj.addNode(1);
+        obj.addNode(2);
+        obj.print();
+    }
+}
+```
+
+``` java
+class Stack{
+    int[] arr;
+    int ind = 0;
+    Stack(int size){
+        this.arr = new int[size];
+    }
+    
+    public void push(int item){
+        if (this.arr.length > this.ind){
+            this.arr[this.ind] = item;
+            this.ind += 1;
+        }else{
+            System.out.println("your stack is full");
+        }
+    }
+    
+    public void pop(){
+        if (this.ind != 0){
+            int a = this.arr[this.ind-1];
+            this.arr[this.ind-1] = 0;
+            this.ind -= 1;
+            System.out.println(a);
+        }else{
+            System.out.println("cannot delete an element from empty stack");
+        }
+    }
+    
+    public void show(){
+        System.out.print("[");
+        for (int i = 0; i < this.arr.length; i++){
+            System.out.print(this.arr[i] + " ");
+        }
+        System.out.print("]");
+    }
+}
+
+public class MyClass {
+    public static void main(String args[]) {
+      Stack stack = new Stack(3);
+      stack.push(2);
+      stack.push(3);
+      stack.push(4);
+      stack.show();
+      stack.pop();
+      
+    }
+}
+```
 ## Exceptions
 ``` java
 public class MyClass {
