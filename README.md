@@ -1,4 +1,4 @@
-# Learning-Java
+# Learning-Data Structures
 ## Files and I/O
 ``` java
 import java.io.File;
@@ -158,6 +158,67 @@ public class MyClass {
       
     }
 }
+```
+3. Binary Tree
+``` python
+
+class Node:
+    def __init__(self, data):    
+        self.left = None
+        self.right = None
+        self.data = data
+
+class Tree:
+    def __init__(self):
+        self.head = None
+        self.lft = None
+        self.rght = None
+        self.dta = None
+        self.depth = None
+    def insert(self, data):
+        if self.head:
+            if data > self.dta:
+                self.depth.right = Node(data)
+                self.depth = self.depth.right
+                if self.rght:
+                    self.rght.right = self.depth
+                else:
+                    self.rght = self.depth
+            elif data < self.dta:
+                self.depth.left = Node(data)
+                self.depth = self.depth.left
+                if self.lft:
+                    self.lft.left = self.depth
+                else:
+                    self.lft = self.depth
+        else:
+            self.head = Node(data)
+            self.dta = self.head.data
+            self.depth = self.head
+    
+    def traverse(self):
+        print(self.head.data)
+        left = self.lft
+        right = self.rght
+        while(left != None or right != None):
+            print(left.data)
+            left = left.left
+            print(right.data)
+            right = right.right
+
+
+if __name__ == "__main__":
+
+    obj = Tree()
+
+    obj.insert(3)
+    obj.insert(4)
+    obj.insert(5)
+    obj.insert(1)
+    obj.insert(2)
+
+    obj.traverse()
+
 ```
 ## Exceptions
 ``` java
