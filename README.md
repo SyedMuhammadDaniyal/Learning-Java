@@ -531,7 +531,8 @@ public class javaPrac {
         String var = shape.getName();
         System.out.println("Name of shape is: "+var);       
     }
-}```
+}
+```
 
 ## Data Structures
 1. Linked List
