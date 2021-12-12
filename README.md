@@ -1,4 +1,51 @@
-# Learning-Data Structures
+## Exceptions
+``` java
+public class MyClass {
+    public static void main(String args[]) {
+    // compile time error
+    // (syntactical error , type error, not found error etc)
+    // runtime errors
+    // (logical errors, arithmatic error , type(if you give wrong type in user inp))
+    
+    try{
+        int a = 0;
+        int b = 1;
+        System.out.println(a/b);
+    }catch (Exception e){
+        System.out.println(e);
+    }
+    finally{
+        System.out.println("this block will always runs");
+    }
+    }
+    
+    
+    int a = 0;
+    if (a == 0){
+        throw new ArithmeticException("division by zero");
+    }
+}
+```
+## Array
+### 2D
+``` java
+int[][] a = new int[2][3];
+        a[0][0] = 1;
+        a[0][1] = 2;
+        a[0][2] = 3;
+        
+        a[1][0] = 1;
+        a[1][1] = 2;
+        a[1][2] = 3;
+        
+        for (int i = 0; i < a.length; i++){
+            for (int j = 0; j < a[i].length; j++){
+                System.out.print(a[i][j]);
+            }
+            System.out.println();
+        }
+```
+
 ## Files and I/O
 ``` java
 import java.io.File;
@@ -62,211 +109,7 @@ try {
 			System.out.println("not WOrk");
 		}
 ```
-
-## Data Structures
-1. Linked List
-``` java
-class Node{
-    int data;
-    Node next;
-    Node(int data){
-        this.data = data;
-    }
-}
-
-class LinkedList{
-    Node head;
-    Node nxt1;
-    
-    public void addNode(int data){
-        if (this.head == null){
-            this.head = new Node(data);
-            System.out.println(head);
-        }else{
-            Node node = new Node(data);
-            nxt1 = head;
-            while (nxt1.next != null){
-                nxt1 = nxt1.next;
-            }
-            nxt1.next = node;
-        }
-    }
-    
-    public void print(){
-        nxt1 = head;
-        while (nxt1 != null){
-            System.out.println(nxt1.data);
-            nxt1 = nxt1.next;
-        }
-    }
-}
-public class MyClass {
-    public static void main(String args[]) {
-        LinkedList obj = new LinkedList();
-        obj.addNode(1);
-        obj.addNode(2);
-        obj.print();
-    }
-}
-```
-2. Stack
-``` java
-class Stack{
-    int[] arr;
-    int ind = 0;
-    Stack(int size){
-        this.arr = new int[size];
-    }
-    
-    public void push(int item){
-        if (this.arr.length > this.ind){
-            this.arr[this.ind] = item;
-            this.ind += 1;
-        }else{
-            System.out.println("your stack is full");
-        }
-    }
-    
-    public void pop(){
-        if (this.ind != 0){
-            int a = this.arr[this.ind-1];
-            this.arr[this.ind-1] = 0;
-            this.ind -= 1;
-            System.out.println(a);
-        }else{
-            System.out.println("cannot delete an element from empty stack");
-        }
-    }
-    
-    public void show(){
-        System.out.print("[");
-        for (int i = 0; i < this.arr.length; i++){
-            System.out.print(this.arr[i] + " ");
-        }
-        System.out.print("]");
-    }
-}
-
-public class MyClass {
-    public static void main(String args[]) {
-      Stack stack = new Stack(3);
-      stack.push(2);
-      stack.push(3);
-      stack.push(4);
-      stack.show();
-      stack.pop();
-      
-    }
-}
-```
-3. Binary Tree
-``` python
-
-class Node:
-    def __init__(self, data):    
-        self.left = None
-        self.right = None
-        self.data = data
-
-class Tree:
-    def __init__(self):
-        self.head = None
-        self.lft = None
-        self.rght = None
-        self.dta = None
-        self.depth = None
-    def insert(self, data):
-        if self.head:
-            if data > self.dta:
-                self.depth.right = Node(data)
-                self.depth = self.depth.right
-                if self.rght:
-                    self.rght.right = self.depth
-                else:
-                    self.rght = self.depth
-            elif data < self.dta:
-                self.depth.left = Node(data)
-                self.depth = self.depth.left
-                if self.lft:
-                    self.lft.left = self.depth
-                else:
-                    self.lft = self.depth
-        else:
-            self.head = Node(data)
-            self.dta = self.head.data
-            self.depth = self.head
-    
-    def traverse(self):
-        print(self.head.data)
-        left = self.lft
-        right = self.rght
-        while(left != None or right != None):
-            print(left.data)
-            left = left.left
-            print(right.data)
-            right = right.right
-
-
-if __name__ == "__main__":
-
-    obj = Tree()
-
-    obj.insert(3)
-    obj.insert(4)
-    obj.insert(5)
-    obj.insert(1)
-    obj.insert(2)
-
-    obj.traverse()
-
-```
-## Exceptions
-``` java
-public class MyClass {
-    public static void main(String args[]) {
-    // compile time error
-    // (syntactical error , type error, not found error etc)
-    // runtime errors
-    // (logical errors, arithmatic error , type(if you give wrong type in user inp))
-    
-    try{
-        int a = 0;
-        int b = 1;
-        System.out.println(a/b);
-    }catch (Exception e){
-        System.out.println(e);
-    }
-    finally{
-        System.out.println("this block will always runs");
-    }
-    }
-    
-    
-    int a = 0;
-    if (a == 0){
-        throw new ArithmeticException("division by zero");
-    }
-}
-```
-## Array
-### 2D
-``` java
-int[][] a = new int[2][3];
-        a[0][0] = 1;
-        a[0][1] = 2;
-        a[0][2] = 3;
-        
-        a[1][0] = 1;
-        a[1][1] = 2;
-        a[1][2] = 3;
-        
-        for (int i = 0; i < a.length; i++){
-            for (int j = 0; j < a[i].length; j++){
-                System.out.print(a[i][j]);
-            }
-            System.out.println();
-        }
-```
+# OOP (Object Oriented Programming)
 ## Types of constructor
 1. default (is mai default value set krte hain)
 ``` java
@@ -688,6 +531,166 @@ public class javaPrac {
         String var = shape.getName();
         System.out.println("Name of shape is: "+var);       
     }
+}```
+
+## Data Structures
+1. Linked List
+``` java
+class Node{
+    int data;
+    Node next;
+    Node(int data){
+        this.data = data;
+    }
 }
+
+class LinkedList{
+    Node head;
+    Node nxt1;
+    
+    public void addNode(int data){
+        if (this.head == null){
+            this.head = new Node(data);
+            System.out.println(head);
+        }else{
+            Node node = new Node(data);
+            nxt1 = head;
+            while (nxt1.next != null){
+                nxt1 = nxt1.next;
+            }
+            nxt1.next = node;
+        }
+    }
+    
+    public void print(){
+        nxt1 = head;
+        while (nxt1 != null){
+            System.out.println(nxt1.data);
+            nxt1 = nxt1.next;
+        }
+    }
+}
+public class MyClass {
+    public static void main(String args[]) {
+        LinkedList obj = new LinkedList();
+        obj.addNode(1);
+        obj.addNode(2);
+        obj.print();
+    }
+}
+```
+2. Stack
+``` java
+class Stack{
+    int[] arr;
+    int ind = 0;
+    Stack(int size){
+        this.arr = new int[size];
+    }
+    
+    public void push(int item){
+        if (this.arr.length > this.ind){
+            this.arr[this.ind] = item;
+            this.ind += 1;
+        }else{
+            System.out.println("your stack is full");
+        }
+    }
+    
+    public void pop(){
+        if (this.ind != 0){
+            int a = this.arr[this.ind-1];
+            this.arr[this.ind-1] = 0;
+            this.ind -= 1;
+            System.out.println(a);
+        }else{
+            System.out.println("cannot delete an element from empty stack");
+        }
+    }
+    
+    public void show(){
+        System.out.print("[");
+        for (int i = 0; i < this.arr.length; i++){
+            System.out.print(this.arr[i] + " ");
+        }
+        System.out.print("]");
+    }
+}
+
+public class MyClass {
+    public static void main(String args[]) {
+      Stack stack = new Stack(3);
+      stack.push(2);
+      stack.push(3);
+      stack.push(4);
+      stack.show();
+      stack.pop();
+      
+    }
+}
+```
+3. Binary Tree
+``` python
+
+class Node:
+    def __init__(self, data):    
+        self.left = None
+        self.right = None
+        self.data = data
+
+class Tree:
+    def __init__(self):
+        self.head = None
+        self.lft = None
+        self.rght = None
+        self.dta = None
+        self.depth = None
+    def insert(self, data):
+        if self.head:
+            if data > self.dta:
+                self.depth.right = Node(data)
+                self.depth = self.depth.right
+                if self.rght:
+                    self.rght.right = self.depth
+                else:
+                    self.rght = self.depth
+            elif data < self.dta:
+                self.depth.left = Node(data)
+                self.depth = self.depth.left
+                if self.lft:
+                    self.lft.left = self.depth
+                else:
+                    self.lft = self.depth
+        else:
+            self.head = Node(data)
+            self.dta = self.head.data
+            self.depth = self.head
+    
+    def traverse(self):
+        print(self.head.data)
+        left = self.lft
+        right = self.rght
+        while(left != None or right != None):
+            print(left.data)
+            left = left.left
+            print(right.data)
+            right = right.right
+
+
+if __name__ == "__main__":
+
+    obj = Tree()
+
+    obj.insert(3)
+    obj.insert(4)
+    obj.insert(5)
+    obj.insert(1)
+    obj.insert(2)
+
+    obj.traverse()
+
+```
+
+
 
 ```
