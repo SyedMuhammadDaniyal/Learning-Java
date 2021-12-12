@@ -630,7 +630,58 @@ public class MyClass {
     }
 }
 ```
-3. Binary Tree
+4. Queue
+``` java
+class MyQueue{
+    int[] arr;
+    int rear  =0;
+    int size;
+    MyQueue(int size){
+        this.size = size;
+        this.arr = new int [size];
+    }
+
+    public void enqueue(int data){
+        if (rear != size-1){
+        this.arr[rear] = data;
+        rear += 1;
+        }
+    
+    }
+
+    public void dequeue(){
+        this.arr[0] = 0;
+        for (int i= 0; i < rear-1; i++){
+            arr[i] = arr[i+1];
+        }
+        rear -=1;
+    }
+
+    public void traverse(){
+        for (int j= 0; j < rear; j++){
+            System.out.print(this.arr[j] + "  ");
+        }
+        System.out.println("");
+    }
+}
+
+
+public class queue{
+public static void main(String[] args) {
+    MyQueue obj = new MyQueue(5);
+    System.out.println("enqueue");
+    obj.enqueue(1);
+    obj.enqueue(2);
+    obj.enqueue(3);
+    obj.traverse();
+    System.out.println("dequeue");
+    obj.dequeue();
+    obj.traverse();
+
+}
+}
+```
+6. Binary Tree
 ``` python
 
 class Node:
@@ -691,7 +742,77 @@ if __name__ == "__main__":
     obj.traverse()
 
 ```
+7. Graph
+``` python
+class AdjNode:
+    def __init__(self, data):
+        self.vertex = data
+        self.next = None
+  
 
+class Graph:
+    def __init__(self, vertices):
+        self.V = vertices
+        self.graph = [None] * self.V
+        self.cities = ["Karachi", "Lahore", "Islamabad", 'Peshawar', "Quetta"]
 
+    def add_edge(self, src, dest):
+        src = self.cities.index(src)
+        dest = self.cities.index(dest)
 
+        node = AdjNode(dest)
+        node.next = self.graph[src]
+        self.graph[src] = node
+
+        node = AdjNode(src)
+        node.next = self.graph[dest]
+        self.graph[dest] = node
+  
+    def print_graph(self):
+        for i in range(self.V):
+            print("Adjacency list of vertex {}\n head".format(i), end="")
+            temp = self.graph[i]
+            while temp:
+                print(" -> {}".format(self.cities[temp.vertex]), end="")
+                temp = temp.next
+            print(" \n")
+    
+    def show_path(self, start, end):
+        data = []
+        start = self.cities.index(start)
+        end = self.cities.index(end)
+        for i in range(self.V):
+            if self.graph[i].vertex != start:
+                continue
+            else:
+                temp = self.graph[i].next
+                temp1 = self.graph[i]
+                while temp:
+                    if temp.vertex == end:
+                        temp.next = None
+                        temp = temp.next
+                        data.append(temp1)
+                    else:
+                        temp = temp.next
+        for i in data:
+            while i:
+                print(self.cities[i.vertex], end=" -> ")
+                i = i.next
+            print()
+
+if __name__ == "__main__":
+    V = 5
+    graph = Graph(V)
+
+    graph.add_edge('Lahore', 'Karachi')
+    graph.add_edge('Karachi', 'Islamabad')
+    graph.add_edge('Islamabad', 'Lahore')
+    graph.add_edge('Islamabad', 'Peshawar')
+    graph.add_edge('Quetta', 'Peshawar')
+    graph.add_edge('Quetta', 'Karachi')
+    graph.add_edge('Quetta', 'Islamabad')
+
+    graph.print_graph()
+
+    graph.show_path('Quetta', 'Lahore')
 ```
