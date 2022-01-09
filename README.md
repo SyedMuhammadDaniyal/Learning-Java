@@ -683,66 +683,200 @@ public static void main(String[] args) {
 ```
 6. Binary Tree
 ``` python
-
 class Node:
-    def __init__(self, data):    
+    def __init__(self, data) -> None:
         self.left = None
         self.right = None
         self.data = data
 
-class Tree:
-    def __init__(self):
-        self.head = None
-        self.lft = None
-        self.rght = None
-        self.dta = None
-        self.depth = None
+
+class BinaryTree:
+    def __init__(self) -> None:
+        self.root = None
+
     def insert(self, data):
-        if self.head:
-            if data > self.dta:
-                self.depth.right = Node(data)
-                self.depth = self.depth.right
-                if self.rght:
-                    self.rght.right = self.depth
-                else:
-                    self.rght = self.depth
-            elif data < self.dta:
-                self.depth.left = Node(data)
-                self.depth = self.depth.left
-                if self.lft:
-                    self.lft.left = self.depth
-                else:
-                    self.lft = self.depth
+        newNode = Node(data)
+
+        if self.root == None:
+            self.root = newNode
+
         else:
-            self.head = Node(data)
-            self.dta = self.head.data
-            self.depth = self.head
+            queue = []
+            queue.append(self.root)
+
+            while True:
+                node = queue.pop(0)
+
+                if node.left != None and node.right != None:
+                    queue.append(node.left)
+                    queue.append(node.right)
+                else:
+                    if node.left == None:
+                        node.left = newNode
+                        queue.append(node.left)
+                    else:
+                        node.right = newNode
+                        queue.append(node.right)
+                    break
+    def inorder_traversal(self, node = None):
+        if node == None:
+            node = self.root
+        if(self.root == None):  
+            print("Tree is empty")  
+            return  
+        else:  
+            if(node.left != None):  
+                self.inorder_traversal(node.left)  
+            print(node.data) 
+            if(node.right!= None):  
+                self.inorder_traversal(node.right)
     
-    def traverse(self):
-        print(self.head.data)
-        left = self.lft
-        right = self.rght
-        while(left != None or right != None):
-            print(left.data)
-            left = left.left
-            print(right.data)
-            right = right.right
+    def preorder_traversal(self, node = None):
+        if node == None:
+            node = self.root
+        if(self.root == None):  
+            print("Tree is empty")  
+            return  
+        else:
+            print(node.data) 
+            if(node.left != None):  
+                self.inorder_traversal(node.left)  
+            if(node.right!= None):  
+                self.inorder_traversal(node.right)
 
+    def postorder_traversal(self, node = None):
+        if node == None:
+            node = self.root
+        if(self.root == None):  
+            print("Tree is empty")  
+            return  
+        else:
+            if(node.left != None):  
+                self.inorder_traversal(node.left)  
+            if(node.right!= None):  
+                self.inorder_traversal(node.right)
+            print(node.data) 
 
-if __name__ == "__main__":
+obj = BinaryTree()
 
-    obj = Tree()
+obj.insert(1)
+obj.insert(2)
+obj.insert(3)
+obj.insert(4)
+obj.insert(5)
+obj.insert(6)
+obj.insert(7)
+obj.insert(8)
 
-    obj.insert(3)
-    obj.insert(4)
-    obj.insert(5)
-    obj.insert(1)
-    obj.insert(2)
+print("Inorder Traversal")
+obj.inorder_traversal()
 
-    obj.traverse()
+print("Preorder Traversal")
+obj.preorder_traversal()
+
+print("Postorder Traversal")
+obj.postorder_traversal()
 
 ```
-7. Graph
+7. Binary Search Tree
+ ``` python
+ class Node:
+    def __init__(self, data) -> None:
+        self.left = None
+        self.right = None
+        self.data = data
+
+
+class BinarySearchTree:
+    def __init__(self) -> None:
+        self.root = None
+
+    def insert(self, data):
+        newNode = Node(data)
+
+        if self.root == None:
+            self.root = newNode
+        
+        else:
+            node = self.root
+            while True:
+                if data < node.data:
+                    if node.left == None:
+                        node.left = newNode
+                        break
+                    else:
+                        node = node.left
+                elif data > node.data:
+                    # print(data)
+                    # print(node.data)
+                    if node.right == None:
+                        node.right = newNode
+                        break
+                    else:
+                        node = node.right
+
+    def inorder_traversal(self, node = None):
+        if node == None:
+            node = self.root
+        if(self.root == None):  
+            print("Tree is empty")  
+            return  
+        else:  
+            if(node.left != None):  
+                self.inorder_traversal(node.left)  
+            print(node.data) 
+            if(node.right!= None):  
+                self.inorder_traversal(node.right)
+    
+    def preorder_traversal(self, node = None):
+        if node == None:
+            node = self.root
+        if(self.root == None):  
+            print("Tree is empty")  
+            return  
+        else:
+            print(node.data) 
+            if(node.left != None):  
+                self.inorder_traversal(node.left)  
+            if(node.right!= None):  
+                self.inorder_traversal(node.right)
+
+    def postorder_traversal(self, node = None):
+        if node == None:
+            node = self.root
+        if(self.root == None):  
+            print("Tree is empty")  
+            return  
+        else:
+            if(node.left != None):  
+                self.inorder_traversal(node.left)  
+            if(node.right!= None):  
+                self.inorder_traversal(node.right)
+            print(node.data) 
+
+        
+obj = BinarySearchTree()
+
+obj.insert(3)
+obj.insert(1)
+obj.insert(6)
+obj.insert(2)
+obj.insert(5)
+obj.insert(7)
+obj.insert(0)
+
+
+print("Inorder Traversal")
+obj.inorder_traversal()
+
+print("Postorder traversal")
+obj.postorder_traversal()
+
+print("Preorder Traversal")
+obj.preorder_traversal()   
+ 
+ ```
+8. Graph
 ``` python
 class AdjNode:
     def __init__(self, data):
