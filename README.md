@@ -1025,7 +1025,7 @@ obj.print_hash()
 ```
 11. Quadratic Probing (Hash Table)
 ``` python
-class LinearProbing:
+class QuadraticProbing:
     def __init__(self) -> None:
         self.hash_map = {}
         self.length = 10
@@ -1048,7 +1048,7 @@ class LinearProbing:
         print(self.hash_map)
 
 
-obj = LinearProbing()
+obj = QuadraticProbing()
 
 obj.insert(3)
 obj.insert(2)
@@ -1060,5 +1060,4 @@ obj.insert(7)
 obj.insert(12)
 
 obj.print_hash()
-
 ```
