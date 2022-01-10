@@ -950,3 +950,115 @@ if __name__ == "__main__":
 
     graph.show_path('Quetta', 'Lahore')
 ```
+9. Chain Method (Hash table)
+``` python
+class ChainHashing:
+    def __init__(self) -> None:
+        self.hash_map = {}
+        self.length = 10
+
+    def insert(self, data):
+        # key address using hash function
+        # (2k+3) % length
+        # if hash function is not given then use key_address = (k%length)
+        key = (2*data + 3) % self.length
+        if key in self.hash_map.keys():
+            self.hash_map[key].append(data)
+        else:
+            self.hash_map[key] = [data]
+    
+    def print_hash(self):
+        print(self.hash_map)
+
+obj = ChainHashing()
+
+obj.insert(3)
+obj.insert(2)
+obj.insert(9)
+obj.insert(6)
+obj.insert(11)
+obj.insert(13)
+obj.insert(7)
+obj.insert(12)
+
+obj.print_hash()
+
+```
+10. Linear probing (hash table)
+``` python
+class LinearProbing:
+    def __init__(self) -> None:
+        self.hash_map = {}
+        self.length = 10
+
+    def insert(self, data):
+        
+        key_address = (2*data+3)%self.length
+        if key_address in self.hash_map.keys():
+            for i in range(self.length):
+                new_key_address = (key_address+i) % self.length
+                if new_key_address in self.hash_map.keys():
+                    continue
+                else:
+                    self.hash_map[new_key_address] = data
+                    break
+        else:
+            self.hash_map[key_address] = data
+    
+    def print_hash(self):
+        print(self.hash_map)
+
+
+obj = LinearProbing()
+
+obj.insert(3)
+obj.insert(2)
+obj.insert(9)
+obj.insert(6)
+obj.insert(11)
+obj.insert(13)
+obj.insert(7)
+obj.insert(12)
+
+obj.print_hash()
+
+```
+11. Quadratic Probing (Hash Table)
+``` python
+class LinearProbing:
+    def __init__(self) -> None:
+        self.hash_map = {}
+        self.length = 10
+
+    def insert(self, data):
+        
+        key_address = (2*data+3)%self.length
+        if key_address in self.hash_map.keys():
+            for i in range(self.length):
+                new_key_address = (key_address+i**2) % self.length
+                if new_key_address in self.hash_map.keys():
+                    continue
+                else:
+                    self.hash_map[new_key_address] = data
+                    break
+        else:
+            self.hash_map[key_address] = data
+    
+    def print_hash(self):
+        print(self.hash_map)
+
+
+obj = LinearProbing()
+
+obj.insert(3)
+obj.insert(2)
+obj.insert(9)
+obj.insert(6)
+obj.insert(11)
+obj.insert(13)
+obj.insert(7)
+obj.insert(12)
+
+obj.print_hash()
+
+```
